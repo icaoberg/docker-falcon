@@ -1,9 +1,9 @@
 FROM ubuntu:14.04
 
 MAINTAINER Ivan E. Cao-Berg <icaoberg@alumni.cmu.edu>
-LABEL Description="This image is used for FALCON"
+LABEL Description="FALCON for Python over Docker. halcon is a python implementation of the Feedback Adaptive Loop for Content-Based Retrieval (FALCON) algorithm."
 LABEL Vendor="Computational Biology Department at Carnegie Mellon University"
-LABEL Version="0.1"
+LABEL Version="0.21"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update --fix-missing && apt-get install -y build-essential git python python-dev python-setuptools nginx supervisor bcrypt libssl-dev libffi-dev libpq-dev vim redis-server rsyslog wget
 RUN apt-get install -y python-numpy python-scipy python-matplotlib
@@ -24,4 +24,3 @@ USER icaoberg
 
 RUN git clone https://github.com/icaoberg/falcon.git
 RUN git clone https://github.com/icaoberg/falcon-docs.git
-
