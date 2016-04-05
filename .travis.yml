@@ -1,0 +1,18 @@
+sudo: required
+
+services:
+  - docker
+
+# whitelist
+branches:
+  only:
+    - master
+    - dev
+
+before_install:
+- docker build -t icaoberg/falcon .
+
+script:
+- docker images
+- docker run icaoberg/falcon /bin/bash -c "python falcon/examples/iris.py"
+- docker run icaoberg/falcon /bin/bash -c "python falcon/examples/wine.py"

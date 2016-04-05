@@ -1,15 +1,26 @@
-FROM python:2-onbuild
+FROM ubuntu:14.04
 
 MAINTAINER Ivan E. Cao-Berg <icaoberg@alumni.cmu.edu>
-LABEL Description="This image is used for FALCON"
+LABEL Description="FALCON for Python over Docker. halcon is a python implementation of the Feedback Adaptive Loop for Content-Based Retrieval (FALCON) algorithm."
 LABEL Vendor="Computational Biology Department at Carnegie Mellon University"
-LABEL Version="0.1"
+LABEL Version="0.21"
 
-USER root
+RUN DEBIAN_FRONTEND=noninteractive apt-get update --fix-missing && apt-get install -y build-essential git python python-dev python-setuptools nginx supervisor bcrypt libssl-dev libffi-dev libpq-dev vim redis-server rsyslog wget
+RUN apt-get install -y python-numpy python-scipy python-matplotlib
+RUN easy_install pip
+RUN pip install sphinx
+RUN pip install tabulate
+RUN pip install halcon
 
-# libav-tools for matplotlib anim
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends libav-tools && \
-    apt-get clean && \
-RUN apt-get install python-setuptools python-numpy python-scipy python-matplotlib
-RUN easy_install pip 
+# Configure environment
+ENV SHELL /bin/bash
+ENV USERNAME icaoberg
+ENV UID 1000
+RUN useradd -m -s /bin/bash -N -u $UID $USERNAME
+RUN if [ ! -d /home/$USERNAME/ ]; then mkdir /home/$USERNAME/; fi
+WORKDIR /home/$USERNAME/
+
+USER icaoberg
+
+RUN git clone https://github.com/icaoberg/falcon.git
+RUN git clone https://github.com/icaoberg/falcon-docs.git
