@@ -11,3 +11,6 @@ branches:
 
 before_install:
 - docker build .
+
+script:
+- docker images
