@@ -3,5 +3,11 @@ sudo: required
 services:
   - docker
 
+# whitelist
+branches:
+  only:
+    - master
+    - dev
+
 before_install:
 - docker build .
