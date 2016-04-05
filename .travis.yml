@@ -10,7 +10,9 @@ branches:
     - dev
 
 before_install:
-- docker build .
+- docker build -t icaoberg/falcon .
 
 script:
 - docker images
+- docker run icaoberg/falcon /bin/bash -c "python falcon/examples/iris.py"
+- docker run icaoberg/falcon /bin/bash -c "python falcon/examples/wine.py"
