@@ -13,7 +13,7 @@ FALCON for Python over Docker. halcon is a python implementation of the Feedback
 FALCON is, as described in the article abstract, "a novel method that is designed to handle disjunctive queries within metric spaces. The user provides weights for positive examples; our system 'learns' the implied concept and returns similar objects."
 
 ## Examples
-These examples are include with [HALCON for Python](https://pypi.python.org/pypi/halcon).
+These examples are included with [HALCON for Python](https://pypi.python.org/pypi/halcon).
 
 ### iris.py
 
