@@ -13,11 +13,12 @@ FALCON for Python over Docker. halcon is a python implementation of the Feedback
 FALCON is, as described in the article abstract, "a novel method that is designed to handle disjunctive queries within metric spaces. The user provides weights for positive examples; our system 'learns' the implied concept and returns similar objects."
 
 ## Examples
+These examples are include with HALCON for Python.
 
 ### iris.py
 
 ```
-➜  docker-falcon git:(dev) docker run -i -t icaoberg/falcon /bin/bash -c "python falcon/examples/iris.py"
+➜ docker run -i -t icaoberg/falcon /bin/bash -c "python falcon/examples/iris.py"
 
 This example uses the iris dataset from
 
@@ -61,4 +62,34 @@ Elapsed time: 0.0696499347687 seconds
 
 Do the top results in the list above belong to the same class as the query image?
 If so, then SCORE! It seems to work.
+```
+
+### wine.py
+
+```
+➜ docker run -i -t icaoberg/falcon /bin/bash -c "python falcon/examples/wine.py"
+
+This example uses the wine dataset from
+
+Machine Learning Repository
+Center for Machine Learning and Intelligent Systems
+http://archive.ics.uci.edu/ml/datasets/Wine
+
+I will use the first three feature vectors as my query wine set
+
+And I will use the rest of the feature vectors to find the most similar images
+Elapsed time: 0.364924907684 seconds
+
+  Ranking  Identifier          Score
+---------  ------------  -----------
+        0  wine1         0
+        1  wine2         0
+        2  wine3         0
+        3  wine21        2.77663e-05
+        4  wine30        0.000629879
+        5  wine23        0.00252617
+        6  wine49        0.00318536
+        7  wine57        0.00456123
+        8  wine36        0.0152067
+        9  wine39        0.0197516
 ```
