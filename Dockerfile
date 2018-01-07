@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 MAINTAINER Ivan E. Cao-Berg <icaoberg@alumni.cmu.edu>
 LABEL Description="FALCON for Python over Docker. halcon is a python implementation of the Feedback Adaptive Loop for Content-Based Retrieval (FALCON) algorithm."
-LABEL Vendor="Carnegie Mellon University"
+LABEL Vendor="Computational Biology Department at Carnegie Mellon University"
 LABEL Version="0.1"
 
 RUN apt-get update --fix-missing
