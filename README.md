@@ -1,5 +1,6 @@
 # docker-falcon
 
+![Build Status](https://travis-ci.org/icaoberg/docker-falcon.svg?branch=master)
 ![Big Data](https://img.shields.io/badge/big%20data-true-blue.svg)
 [![GitHub issues](https://img.shields.io/github/issues/icaoberg/docker-falcon.svg)](https://github.com/icaoberg/docker-falcon/issues)
 [![GitHub forks](https://img.shields.io/github/forks/icaoberg/docker-falcon.svg)](https://github.com/icaoberg/docker-falcon/network)
